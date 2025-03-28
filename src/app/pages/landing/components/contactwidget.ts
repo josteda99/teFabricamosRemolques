@@ -11,11 +11,24 @@ import { selectItemI } from '../../../shared/interfaces/select-item.interface';
 import { emailPattern } from '../../../shared/utils/validation-utils';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @Component({
   selector: 'contact-widget',
   standalone: true,
-  imports: [CommonModule, InputTextModule, FluidModule, ButtonModule, SelectModule, FormsModule, TextareaModule, SelectModule, ReactiveFormsModule, ToastModule],
+  imports: [
+    CommonModule,
+    InputTextModule,
+    FluidModule,
+    ButtonModule,
+    SelectModule,
+    FormsModule,
+    TextareaModule,
+    SelectModule,
+    ReactiveFormsModule,
+    ToastModule,
+    ProgressSpinnerModule
+  ],
   providers: [TrailerService, MessageService],
   template: `
     <div id="contact">
@@ -92,7 +105,11 @@ import { ToastModule } from 'primeng/toast';
               </div>
 
               <div class="w-full ">
-                <button pButton type="button" label="Enviar" icon="pi pi-check" (click)="sendContactEmail()" class="w-3rem"></button>
+                <button pButton type="button" label="Enviar" icon="pi pi-check" (click)="sendContactEmail()" class="w-3rem">
+                  @if (loading()) {
+                    <p-progress-spinner [style]="{ width: '15px', height: '15px' }" ariaLabel="loading" />
+                  }
+                </button>
               </div>
             </div>
           </div>
@@ -105,6 +122,7 @@ import { ToastModule } from 'primeng/toast';
 export class ContactWidget implements OnInit {
   private trailerService = inject(TrailerService);
   private messageService = inject(MessageService);
+  private http = inject(HttpClient);
 
   public contactForm: FormGroup = new FormGroup({
     name: new FormControl('', { validators: [Validators.required], nonNullable: true }),
@@ -134,6 +152,7 @@ export class ContactWidget implements OnInit {
 
   public trailerOptions: selectItemI[] = [];
   public checkInvalidFields = signal(false);
+  public loading = signal(false);
 
   public contactOptions: selectItemI[] = [
     { name: 'Whatsapp', code: 'WhatsApp' },
@@ -146,13 +165,23 @@ export class ContactWidget implements OnInit {
   }
 
   public sendContactEmail(): void {
+    this.loading.set(true);
     this.checkInvalidFields.set(true);
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ingresa todos los campos obligatorios' });
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ingresa todos los campos obligatorios o revise que sean validos' });
+      this.loading.set(false);
       return;
     }
 
-    console.log('send email');
+    const contactForm = this.contactForm.value;
+
+    const message = `Nombre: ${contactForm.name}\nEmail: ${contactForm.email}\nTelefono: ${contactForm.phone}\nPreferencia de contacto: ${contactForm.contactPreference}\nTipo de remolque: ${contactForm.trailerType}\nDimensiones: ${contactForm.length}m x ${contactForm.width}m x ${contactForm.heigth}m\nCapacidad: ${contactForm.capacity} kg\nDescripcion adicional: ${contactForm.additional}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    this.http.post('https://formspree.io/f/mdoywpky', { name: contactForm.name, replyto: contactForm.email, message: message }, { headers: headers }).subscribe(() => {
+      this.messageService.add({ severity: 'success', summary: 'Enviado', detail: 'Pronto nos pondremos en contacto.' });
+      this.loading.set(false);
+    });
   }
 }
