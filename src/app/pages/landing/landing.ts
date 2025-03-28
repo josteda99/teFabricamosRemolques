@@ -8,24 +8,39 @@ import { TopbarWidget } from './components/topbarwidget.component';
 import { HeroWidget } from './components/herowidget';
 import { FeaturesWidget } from './components/featureswidget';
 import { HighlightsWidget } from './components/highlightswidget';
-import { PricingWidget } from './components/pricingwidget';
 import { FooterWidget } from './components/footerwidget';
+import { ContactWidget } from './components/contactwidget';
+import { GalleryWidget } from './components/gallerywidget';
 
 @Component({
-    selector: 'app-landing',
-    standalone: true,
-    imports: [RouterModule, TopbarWidget, HeroWidget, FeaturesWidget, HighlightsWidget, PricingWidget, FooterWidget, RippleModule, StyleClassModule, ButtonModule, DividerModule],
-    template: `
-        <div class="bg-surface-0 dark:bg-surface-900">
-            <div id="home" class="landing-wrapper overflow-hidden">
-                <topbar-widget class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 flex items-center justify-between relative lg:static" />
-                <hero-widget />
-                <features-widget />
-                <highlights-widget />
-                <pricing-widget />
-                <footer-widget />
-            </div>
-        </div>
-    `
+  selector: 'app-landing',
+  standalone: true,
+  imports: [
+    RouterModule,
+    TopbarWidget,
+    HeroWidget,
+    FeaturesWidget,
+    HighlightsWidget,
+    FooterWidget,
+    RippleModule,
+    StyleClassModule,
+    ButtonModule,
+    DividerModule,
+    ContactWidget,
+    GalleryWidget
+  ],
+  template: `
+    <div class="bg-surface-0 dark:bg-surface-900">
+      <div id="home" class="landing-wrapper overflow-hidden">
+        <topbar-widget class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 flex items-center justify-between relative lg:static" />
+        <hero-widget />
+        <gallery-widget />
+        <contact-widget />
+        <features-widget />
+        <highlights-widget />
+        <footer-widget />
+      </div>
+    </div>
+  `
 })
 export class Landing {}
