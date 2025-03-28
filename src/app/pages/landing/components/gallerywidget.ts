@@ -6,13 +6,13 @@ import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
 import { TagModule } from 'primeng/tag';
 import { PhotoService } from '../../service/photo.service';
-import { RemolqueService } from '../../service/remolque.service';
+import { TrailerService } from '../../service/trailer.service';
 
 @Component({
   selector: 'gallery-widget',
   standalone: true,
   imports: [CommonModule, CarouselModule, ButtonModule, GalleriaModule, ImageModule, TagModule],
-  providers: [RemolqueService, PhotoService],
+  providers: [TrailerService, PhotoService],
   styles: [
     `
       .aspect-square {
@@ -101,7 +101,7 @@ export class GalleryWidget {
     }
   ];
 
-  constructor(private remolqueService: RemolqueService) {}
+  constructor(private remolqueService: TrailerService) {}
 
   ngOnInit() {
     this.remolqueService.getImages().then((images) => {

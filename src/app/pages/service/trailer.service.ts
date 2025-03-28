@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class RemolqueService {
+export class TrailerService {
   getData() {
     return [
       {
@@ -68,7 +68,7 @@ export class RemolqueService {
         description: 'Herramientas esenciales para el transporte de productos del campo.'
       },
       {
-        itemImageSrc: 'https://remolquescuni.com/wp-content/uploads/2021/05/Remolque-de-fibra-ONNE-S.jpg',
+        itemImageSrc: 'https://www.remolquesayala.es/wp-content/uploads/2020/01/IMG_20180608_113654-900x900.jpg',
         thumbnailImageSrc: 'https://primefaces.org/cdn/primeng/images/galleria/galleria1s.jpg',
         alt: 'Remolques cerrados',
         title: 'Remolques Cerrados',
