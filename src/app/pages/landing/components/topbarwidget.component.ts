@@ -60,7 +60,7 @@ import { ButtonModule } from 'primeng/button';
         </li>
         <li>
           <a (click)="router.navigate(['/landing'], { fragment: 'contact' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
-            <span>Contactanos</span>
+            <span>Contáctanos</span>
           </a>
         </li>
         <li>
@@ -71,6 +71,11 @@ import { ButtonModule } from 'primeng/button';
         <li>
           <a (click)="router.navigate(['/landing'], { fragment: 'clients' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
             <span>Nuestros clientes</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="router.navigate(['/landing'], { fragment: 'map' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
+            <span>Ubicación</span>
           </a>
         </li>
       </ul>

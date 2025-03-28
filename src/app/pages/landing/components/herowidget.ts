@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
@@ -14,7 +15,15 @@ import { RippleModule } from 'primeng/ripple';
       <div class="mx-6 md:mx-20 mt-0 md:mt-6">
         <h1 class="text-6xl font-bold text-gray-900 leading-tight"><span class="font-light block">Te fabricamos</span>cualquier remolque</h1>
         <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700">Remolques a medida, seguros y duraderos para cualquier necesidad.</p>
-        <button pButton pRipple [rounded]="true" type="button" label="Contactanos" class="!text-xl mt-8 !px-4"></button>
+        <button
+          pButton
+          pRipple
+          [rounded]="true"
+          type="button"
+          label="Contáctanos"
+          (click)="router.navigate(['/landing'], { fragment: 'contact' })"
+          class="!text-xl mt-8 !px-4"
+        ></button>
       </div>
       <div class="flex justify-center md:justify-end">
         <img src="assets/images/remolque-principal.png" alt="Remolque" class="w-9/12 md:w-auto" />
@@ -22,4 +31,6 @@ import { RippleModule } from 'primeng/ripple';
     </div>
   `
 })
-export class HeroWidget {}
+export class HeroWidget {
+  constructor(public router: Router) {}
+}

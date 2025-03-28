@@ -48,13 +48,13 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
                   <input pInputText id="name" type="text" [ngClass]="{ 'ng-invalid ng-dirty border-200': name?.invalid && checkInvalidFields() }" formControlName="name" />
                 </div>
                 <div class="flex flex-wrap gap-2 w-full">
-                  <label for="email">Correo electronico*</label>
+                  <label for="email">Correo electrónico*</label>
                   <input pInputText id="email" type="email" [ngClass]="{ 'ng-invalid ng-dirty border-200': email?.invalid && checkInvalidFields() }" formControlName="email" />
                 </div>
               </div>
               <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex flex-wrap gap-2 w-full">
-                  <label for="phone">Telefono*</label>
+                  <label for="phone">Teléfono*</label>
                   <input pInputText id="phone" type="phone" [ngClass]="{ 'ng-invalid ng-dirty border-200': phone?.invalid && checkInvalidFields() }" formControlName="phone" />
                 </div>
                 <div class="flex flex-wrap gap-2 w-full">
@@ -70,7 +70,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
                 </div>
               </div>
               <div>
-                <h5>Informacion del remolque</h5>
+                <h5>Información del remolque</h5>
               </div>
               <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex flex-wrap gap-2 w-full">
@@ -100,7 +100,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
               </div>
 
               <div class="flex flex-wrap">
-                <label for="additional">Descripcion adicional del remolque</label>
+                <label for="additional">Descripción adicional del remolque</label>
                 <textarea pTextarea id="additional" rows="4" placeholder="Quisiera que tuviera..." formControlName="additional"></textarea>
               </div>
 
@@ -156,7 +156,7 @@ export class ContactWidget implements OnInit {
 
   public contactOptions: selectItemI[] = [
     { name: 'Whatsapp', code: 'WhatsApp' },
-    { name: 'Telefono', code: 'Telefono' },
+    { name: 'Teléfono', code: 'Telefono' },
     { name: 'Email', code: 'Email' }
   ];
 

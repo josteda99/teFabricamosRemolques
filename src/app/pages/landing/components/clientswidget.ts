@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
       >
         <div class="flex flex-col justify-center items-center text-center px-4 py-4 md:py-0">
           <div class="text-gray-900 mb-2 text-3xl font-semibold">Nuestros Clientes</div>
-          <span class="text-gray-600 text-2xl">Estadisticas y marcas con las que hemos trabajado</span>
+          <span class="text-gray-600 text-2xl">Estadísticas y marcas con las que hemos trabajado</span>
           <div class="grid mt-10">
             <div class="col-12">
               <h2 class="text-8xl">58</h2>
