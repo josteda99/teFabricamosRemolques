@@ -17,7 +17,7 @@ import { RippleModule } from 'primeng/ripple';
         <button pButton pRipple [rounded]="true" type="button" label="Contactanos" class="!text-xl mt-8 !px-4"></button>
       </div>
       <div class="flex justify-center md:justify-end">
-        <img src="/assets/images/remolque-principal.png" alt="Remolque" class="w-9/12 md:w-auto" />
+        <img src="assets/images/remolque-principal.png" alt="Remolque" class="w-9/12 md:w-auto" />
       </div>
     </div>
   `

@@ -55,7 +55,7 @@ import { ButtonModule } from 'primeng/button';
         </li>
         <li>
           <a (click)="router.navigate(['/landing'], { fragment: 'gallery' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
-            <span>Nuesttros productos</span>
+            <span>Nuestros productos</span>
           </a>
         </li>
         <li>
@@ -65,14 +65,15 @@ import { ButtonModule } from 'primeng/button';
         </li>
         <li>
           <a (click)="router.navigate(['/landing'], { fragment: 'highlights' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
-            <span>Highlights</span>
+            <span>Características</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="router.navigate(['/landing'], { fragment: 'clients' })" pRipple class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl">
+            <span>Nuestros clientes</span>
           </a>
         </li>
       </ul>
-      <div class="flex border-t lg:border-t-0 border-surface py-4 lg:py-0 mt-4 lg:mt-0 gap-2">
-        <button pButton pRipple label="Login" routerLink="/auth/login" [rounded]="true" [text]="true"></button>
-        <button pButton pRipple label="Register" routerLink="/auth/login" [rounded]="true"></button>
-      </div>
     </div> `
 })
 export class TopbarWidget {

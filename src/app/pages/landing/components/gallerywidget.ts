@@ -13,8 +13,26 @@ import { RemolqueService } from '../../service/remolque.service';
   standalone: true,
   imports: [CommonModule, CarouselModule, ButtonModule, GalleriaModule, ImageModule, TagModule],
   providers: [RemolqueService, PhotoService],
+  styles: [
+    `
+      .aspect-square {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+      }
+
+      .aspect-square img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    `
+  ],
   template: `
-    <div id="gallery" class="py-6 px-6 lg:px-20 mt-8 mx-0 lg:mx-20">
+    <div id="gallery" class="py-6  lg:px-20 mt-8 mx-0 lg:mx-10">
       <div class="grid grid-cols-12 gap-4 justify-center">
         <div class="col-span-12 text-center mt-20 mb-6">
           <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">Nuestros Productos</div>
@@ -26,11 +44,13 @@ import { RemolqueService } from '../../service/remolque.service';
           <ng-template let-remolque #item>
             <div class="border border-surface rounded-border m-2 p-4">
               <div class="mb-4">
-                <div class="relative mx-auto">
-                  <img [src]="remolque.itemImageSrc" [alt]="remolque.name" class="w-full rounded-border" />
+                <div class="relative mx-auto aspect-square">
+                  <img [src]="remolque.itemImageSrc" [alt]="remolque.name" class="w-full h-full object-cover mx-auto rounded-border" />
                 </div>
               </div>
-              <div class="mb-4 font-medium">{{ remolque.title }}</div>
+              <div class="mb-4 font-bold">
+                <h4>{{ remolque.title }}</h4>
+              </div>
               <div class="flex justify-between items-center">
                 <span> {{ remolque.description }} </span>
               </div>

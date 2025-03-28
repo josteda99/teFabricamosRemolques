@@ -11,6 +11,7 @@ import { HighlightsWidget } from './components/highlightswidget';
 import { FooterWidget } from './components/footerwidget';
 import { ContactWidget } from './components/contactwidget';
 import { GalleryWidget } from './components/gallerywidget';
+import { ClientsWidget } from './components/clientswidget';
 
 @Component({
   selector: 'app-landing',
@@ -27,7 +28,8 @@ import { GalleryWidget } from './components/gallerywidget';
     ButtonModule,
     DividerModule,
     ContactWidget,
-    GalleryWidget
+    GalleryWidget,
+    ClientsWidget
   ],
   template: `
     <div class="bg-surface-0 dark:bg-surface-900">
@@ -38,6 +40,7 @@ import { GalleryWidget } from './components/gallerywidget';
         <contact-widget />
         <features-widget />
         <highlights-widget />
+        <clients-widget />
         <footer-widget />
       </div>
     </div>
